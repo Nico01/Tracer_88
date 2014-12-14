@@ -1,0 +1,5 @@
+as.c:extern char	*malloc();
+comm5.c:		if ((stringbuf = malloc(maxstring)) == 0) {
+comm5.c:		next = (item_t *) malloc(MEMINCR);
+comm6.c:		next = (struct common_t *) malloc(MEMINCR);
+comm7.c:		next = malloc(MEMINCR);
