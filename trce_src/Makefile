@@ -22,7 +22,7 @@ doscurs.o: doscurs.c
  
 t88: 88.o adr.o cond.o main.o doscurs.o Makefile 
 	$(CC) -O0 -o t88 88.o adr.o cond.o  main.o doscurs.o; \
-#	cp t88 ../bin/t88; cp t88 ../exercises/t88; cp t88 ../examples/t88
+	cp t88 ../exercises/t88; cp t88 ../examples/t88
  
 .PHONY : clean
 clean:
