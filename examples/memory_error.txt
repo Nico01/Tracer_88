@@ -1,0 +1,316 @@
+==29436== Memcheck, a memory error detector
+==29436== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==29436== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==29436== Command: ./as88 GenReg.s
+==29436== 
+Project GenReg listfile GenReg.$
+Project GenReg num file GenReg.#
+Project GenReg loadfile GenReg.88
+==29436== Invalid read of size 4
+==29436==    at 0x4EA5934: fclose@@GLIBC_2.2.5 (iofclose.c:54)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda40 is 0 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EA594D: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdac8 is 136 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EA595D: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb28 is 232 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 4
+==29436==    at 0x4EA597E: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb20 is 224 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EA5988: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdac8 is 136 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EA598F: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdac8 is 136 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 4
+==29436==    at 0x4EA5996: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda40 is 0 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid write of size 8
+==29436==    at 0x4EA5998: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb28 is 232 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 4
+==29436==    at 0x4EA599C: fclose@@GLIBC_2.2.5 (iofclose.c:57)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb24 is 228 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EA59B9: fclose@@GLIBC_2.2.5 (libioP.h:889)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdac8 is 136 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 4
+==29436==    at 0x4EA59C0: fclose@@GLIBC_2.2.5 (libioP.h:889)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb24 is 228 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid write of size 8
+==29436==    at 0x4EA5AD0: fclose@@GLIBC_2.2.5 (libioP.h:889)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb28 is 232 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 4
+==29436==    at 0x4EA5AEC: fclose@@GLIBC_2.2.5 (libioP.h:889)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb20 is 224 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EA59D0: fclose@@GLIBC_2.2.5 (iofclose.c:63)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb18 is 216 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 4
+==29436==    at 0x4EB1CC1: _IO_file_finish@@GLIBC_2.2.5 (fileops.c:202)
+==29436==    by 0x4EA59DE: fclose@@GLIBC_2.2.5 (iofclose.c:63)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdab0 is 112 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EB3D14: _IO_default_finish (genops.c:688)
+==29436==    by 0x4EA59DE: fclose@@GLIBC_2.2.5 (iofclose.c:63)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda78 is 56 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EB3D22: _IO_default_finish (genops.c:694)
+==29436==    by 0x4EA59DE: fclose@@GLIBC_2.2.5 (iofclose.c:63)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdaa0 is 96 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EB3D40: _IO_default_finish (genops.c:697)
+==29436==    by 0x4EA59DE: fclose@@GLIBC_2.2.5 (iofclose.c:63)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda88 is 72 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 1
+==29436==    at 0x4EB29E9: _IO_un_link (genops.c:61)
+==29436==    by 0x4EA59DE: fclose@@GLIBC_2.2.5 (iofclose.c:63)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda40 is 0 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 4
+==29436==    at 0x4EA59DF: fclose@@GLIBC_2.2.5 (iofclose.c:64)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fdb00 is 192 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid read of size 8
+==29436==    at 0x4EA5A90: fclose@@GLIBC_2.2.5 (iofclose.c:79)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda88 is 72 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid write of size 4
+==29436==    at 0x4EA5A77: fclose@@GLIBC_2.2.5 (iofclose.c:84)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda40 is 0 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== Invalid free() / delete / delete[] / realloc()
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x400FC4: stop (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401E09: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==  Address 0x51fda40 is 0 bytes inside a block of size 568 free'd
+==29436==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA5A84: fclose@@GLIBC_2.2.5 (iofclose.c:85)
+==29436==    by 0x401566: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== 
+==29436== HEAP SUMMARY:
+==29436==     in use at exit: 10,880 bytes in 7 blocks
+==29436==   total heap usage: 10 allocs, 4 frees, 12,584 bytes allocated
+==29436== 
+==29436== 400 bytes in 1 blocks are still reachable in loss record 1 of 7
+==29436==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x405E38: yygrowstack (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x405F0B: yyparse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4010AD: parse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x40155A: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== 568 bytes in 1 blocks are still reachable in loss record 2 of 7
+==29436==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA63DC: __fopen_internal (iofopen.c:73)
+==29436==    by 0x401AEC: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== 568 bytes in 1 blocks are still reachable in loss record 3 of 7
+==29436==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4EA63DC: __fopen_internal (iofopen.c:73)
+==29436==    by 0x403B1C: ffcreat (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x403BA4: fftemp (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x40148F: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== 2,048 bytes in 1 blocks are still reachable in loss record 4 of 7
+==29436==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x4024F6: item_alloc (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4025B3: inident (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4028B6: yylex (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x407621: yyparse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4010AD: parse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x40155A: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== 2,048 bytes in 1 blocks are still reachable in loss record 5 of 7
+==29436==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x403FFE: remember (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4025C5: inident (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4028B6: yylex (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x407621: yyparse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4010AD: parse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x40155A: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== 2,048 bytes in 1 blocks are still reachable in loss record 6 of 7
+==29436==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x40428A: small (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x404663: indexed (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x407477: yyparse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4010AD: parse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x40155A: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== 3,200 bytes in 1 blocks are still reachable in loss record 7 of 7
+==29436==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==29436==    by 0x405E78: yygrowstack (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x405F0B: yyparse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x4010AD: parse (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x40155A: pass_1 (in /home/dark/Programming/Refactoring/examples/as88)
+==29436==    by 0x401DD7: main (in /home/dark/Programming/Refactoring/examples/as88)
+==29436== 
+==29436== LEAK SUMMARY:
+==29436==    definitely lost: 0 bytes in 0 blocks
+==29436==    indirectly lost: 0 bytes in 0 blocks
+==29436==      possibly lost: 0 bytes in 0 blocks
+==29436==    still reachable: 10,880 bytes in 7 blocks
+==29436==         suppressed: 0 bytes in 0 blocks
+==29436== 
+==29436== For counts of detected and suppressed errors, rerun with: -v
+==29436== ERROR SUMMARY: 27 errors from 23 contexts (suppressed: 0 from 0)

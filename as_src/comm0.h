@@ -78,13 +78,21 @@ separate linker only possible if relocation info produced
 /* ========== Machine independent type declarations ========== */
 
 #ifdef _include
+_include    <stdlib.h>
 _include	<stdio.h>
+_include    <string.h>
 _include	<ctype.h>
 _include	<signal.h>
+_include	<unistd.h>
 #else
+#include    <stdlib.h>
 #include	<stdio.h>
+#include    <string.h>
+#include	<stdarg.h>
+#include	<errno.h>
 #include	<ctype.h>
 #include	<signal.h>
+#include	<unistd.h>
 #endif
 
 #ifdef ASLD
@@ -259,4 +267,4 @@ typedef	struct sect_t	sect_t;
 #endif
 #endif
 
-extern FILE *fopen();   /* some systems don't have this in stdio.h */
+//extern FILE *fopen();   /* some systems don't have this in stdio.h */

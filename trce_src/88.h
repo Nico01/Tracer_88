@@ -1,63 +1,53 @@
-/*
- * LOOK IN table.c for declarations of all of this stuff
- */
+#ifndef _88_H
+#define	_88_H
 
-#ifndef EXTERN
-#define EXTERN
-#endif
-#define CHECK 0			/* To turn on runtime checking, set CHECK 1 */
-typedef short word;		/* type word must be 16 bits */
-typedef unsigned short adr;	/* unsigned 16-bit quantity */
+#include <stdint.h>                     // for uint8_t
+#include <sys/types.h>                  // for int16_t
 
-#ifdef pdp
-typedef unsigned unchr;
-#else
-typedef unsigned char unchr;
-#endif
+#define MEMORY_SIZE (1024*1024)    /* maximum addressable memory is 1MiB */
 
-#ifndef LITTLE_ENDIAN
-#define	LITTLE_ENDIAN 1	/* vax and the like */
-#endif
+char memory[MEMORY_SIZE];
 
-#undef BIG_ENDIAN
+typedef int16_t word;           /* type word must be 16 bits */
+typedef int16_t adr;            /* unsigned 16-bit quantity */
+typedef uint8_t unchr;          /* unsigned 8-bit */
 
-#ifdef LITTLE_ENDIAN
-typedef struct {unchr lo; unchr hi; } pair;
-# define AL 0
-# define AH 1
-# define BL 2
-# define BH 3
-# define CL 4
-# define CH 5
-# define DL 6
-# define DH 7
-#endif
+typedef struct {
+    unchr lo;
+    unchr hi;
+} pair;
 
-#ifdef BIG_ENDIAN
-typedef struct {unchr hi; unchr lo; } pair;
-# define AL 1
-# define AH 0
-# define BL 3
-# define BH 2
-# define CL 5
-# define CH 4
-# define DL 7
-# define DH 6
-#endif
+typedef union {
+    pair b;
+    word w;
+} reg;
 
+typedef union {
+    unchr rc[16];
+    word rw[8];
+} REG;
 
-typedef union {pair b; word w;} reg;
+REG r;
 
+// 8-bit General purpose registers
+#define AL 0
+#define AH 1
+#define BL 2
+#define BH 3
+#define CL 4
+#define CH 5
+#define DL 6
+#define DH 7
 
+// 16-bit register
 #define AX 0
 #define BX 1
 #define CX 2
 #define DX 3
-#define SI 4
+#define SI 4 // index registers
 #define DI 5
 #define BP 6
 #define SP 7
-
 
 #define ax r.rw[AX]
 #define bx r.rw[BX]
@@ -77,7 +67,7 @@ typedef union {pair b; word w;} reg;
 #define dl r.rc[DL]
 #define dh r.rc[DH]
 
-#define W00 AX			/* Wxx used for submultiplexing, e.g. op 81 */
+#define W00 AX /* Wxx used for submultiplexing, e.g. op 81 */
 #define W01 CX
 #define W02 DX
 #define W03 BX
@@ -111,7 +101,7 @@ typedef union {pair b; word w;} reg;
 #define roplo ROP.b.lo
 #define rophi ROP.b.hi
 
-#define ADDW 0			/* codes used for lazy condition code eval */
+#define ADDW 0 /* codes used for lazy condition code eval */
 #define ADDB 1
 #define ADCW 2
 #define ADCB 3
@@ -128,32 +118,31 @@ typedef union {pair b; word w;} reg;
 
 /* Here are the values used in 'nextint' to tell which kind of interrupt next.*/
 #define SEGOVER 1
-#define CLOCK   2
-#define TTYIN   3
-#define TTYOUT  4
-#define DISK    5
-#define	KBD	6
-#define NDEV    8			/* number of I/O devices */
+#define CLOCK 2
+#define TTYIN 3
+#define TTYOUT 4
+#define DISK 5
+#define KBD 6
+#define NDEV 8 /* number of I/O devices */
 
-#define	DIVIDEVEC	 0
-#define CLOCKVEC	 8
-#define	KBDVEC		 9
-#define	XT_WINI		13
-#define DISKVEC		14	/* floppy */
-#define	SYS_VEC		32
-#define TTYINVEC	35
-#define TTYOUTVEC	36
-
+#define DIVIDEVEC 0
+#define CLOCKVEC 8
+#define KBDVEC 9
+#define XT_WINI 13
+#define DISKVEC 14 /* floppy */
+#define SYS_VEC 32
+#define TTYINVEC 35
+#define TTYOUTVEC 36
 
 /* I/O ports and related constants. */
-#define PIT_C 0x00D6		/* output port to enable clock */
-#define SIO_C 0x00DA		/* tty control port */
-#define SIO_D 0x00D8		/* tty data port */
-#define	TIMER_2	0x0042		/* timer port 2 */
-#define TIMER_3	0x0043		/* timer port 3 */
-#define SIO_M 0x0043		/* tty port for enabling/disabling interrupt */
-#define	KEYBD 0x0060		/* keyboard data port */
-#define PORT_B 0x0061		/* keyboard strobe port */
+#define PIT_C 0x00D6   /* output port to enable clock */
+#define SIO_C 0x00DA   /* tty control port */
+#define SIO_D 0x00D8   /* tty data port */
+#define TIMER_2 0x0042 /* timer port 2 */
+#define TIMER_3 0x0043 /* timer port 3 */
+#define SIO_M 0x0043   /* tty port for enabling/disabling interrupt */
+#define KEYBD 0x0060   /* keyboard data port */
+#define PORT_B 0x0061  /* keyboard strobe port */
 
 #define TXRDY 01
 #define RXRDY 02
@@ -162,67 +151,49 @@ typedef union {pair b; word w;} reg;
 #define TO_DISK 1
 
 /* Variables used by I/O. */
-EXTERN int ttystat;
-EXTERN int clkinterval;
+int ttystat;
+int clkinterval;
 
+reg EA, RA, EOP, ROP;
+int ovf, dirf, intf, signf, zerof, cf; /* flag bits */
+char *pcx;                             /* pcx = &m[ (cs<<4) + pc] */
+char *pcx_save; /* pcx saved here at instruction start */
+char *xapc;
+char *eapc, *rapc;
+word *rapw; /* eapw is unusable since it might be odd */
+word *stkp; /* scratch variable used by PUSH and POP */
+int mask;
 
+adr cs, ds, ss, es; /* contents of segment registers */
+adr xs, dsx, ssx;
+long cs16; /* cs16 = 16*cs  (= cs<<4) */
 
-#define MEMBYTES 1048576L	/* how many bytes does 8088 have? * /
-#define MEMBYTES 32768 		/* how many bytes ew small simulator*/
-#define HALFMEM 6000		/* 1/2 of MEMBYTES */
-#define MAXLONG 2000000000L
-#define INTERVAL 50000
+unsigned timer, ticks, nextint, ints_pending;
+long realtime; /* measured in mach instr (5 microsec each) */
 
-EXTERN reg EA, RA, EOP, ROP;
-EXTERN int ovf, dirf, intf, signf, zerof, cf;	/* flag bits */
-EXTERN char *pcx;		/* pcx = &m[ (cs<<4) + pc] */
-EXTERN char *pcx_save;		/* pcx saved here at instruction start */
-EXTERN char *xapc;
-EXTERN char *eapc, *rapc;
-EXTERN word *rapw;		/* eapw is unusable since it might be odd */
-EXTERN word *stkp;		/* scratch variable used by PUSH and POP */
-EXTERN int mask;
-
-EXTERN adr cs, ds, ss, es;	/* contents of segment registers */
-EXTERN adr xs, dsx, ssx;
-EXTERN long cs16;		/* cs16 = 16*cs  (= cs<<4) */
-
-EXTERN unsigned timer, ticks, nextint, ints_pending;
-EXTERN long realtime;		/* measured in mach instr (5 microsec each) */
-EXTERN struct intstruct{
-
-  long int_time;		/* time of next interrupt (in mach instrs) */
-  int int_status;		/* status information */
-  int int_vector;
+struct intstruct {
+    long int_time;  /* time of next interrupt (in mach instrs) */
+    int int_status; /* status information */
+    int int_vector;
 } intstruct[NDEV];
 
 #define ENABLED 01
 
-EXTERN long l, l1, l2;		/* scratch variables used for setting carry */
-EXTERN short x,y,z;		/* used in lazy condition code evaluation */
-EXTERN unchr xc,yc,zc;		/* ditto */
-EXTERN int operator, ccvalid;	/* ditto */
-EXTERN int anything;		/* nonzero if any dumping or tracing on */
-EXTERN int whendump;		/* controls dumping */
-EXTERN int whatdump;		/* controls dumping */
-EXTERN long xx;			/* scratch variable used for mem checking */
-EXTERN unchr stopvlag, dumpt;	/* ew dumping vlag and saved t */
+long l, l1, l2;        /* scratch variables used for setting carry */
+short x, y, z;         /* used in lazy condition code evaluation */
+unchr xc, yc, zc;      /* ditto */
+int operand;
+int ccvalid; /* ditto */
+int anything;          /* nonzero if any dumping or tracing on */
+int whendump;          /* controls dumping */
+int whatdump;          /* controls dumping */
+long xx;               /* scratch variable used for mem checking */
+unchr stopvlag, dumpt; /* ew dumping vlag and saved t */
 
 
-/* The 8088 memory array is declared below.  The definition is as it is to get
- * around a defect in the PDP-11 cc compiler.  That compiler will not accept
- * character arrays with > 32K elements.
- */
-#ifdef pdp
-extern char m[HALFMEM];
-#else
-extern char m[MEMBYTES];
-#endif
-typedef	union { unchr rc[16]; word rw[8];} REG;
-extern REG r;
-/* union{unchr rc[16]; word rw[8];}r;	/* AX,BX,CX,DX,SI,DI,BP,SP */
-extern int traceflag, procdepth(), breakpt(), instrcount, codelength;
+int traceflag, instrcount, codelength; // procdepth(), breakpt(),
 extern char errbuf[];
 
-void exit();
-extern int printf(const char *fnt, ...);
+void interp( void );
+
+#endif /* _88_H */

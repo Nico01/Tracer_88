@@ -8,7 +8,8 @@
  * INTEL 8086 special routines
  */
 
-ea_1(param) {
+void ea_1(int param)
+{
 
 	if ((mrg_1 & 070) || (param & ~070)) {
 		serror("bad operand");
@@ -41,16 +42,18 @@ ea_1(param) {
 	}
 }
 
-ea_2(param) {
-
+void ea_2(int param)
+{
 	mrg_1 = mrg_2;
 	exp_1 = exp_2;
 	RELOMOVE(rel_1, rel_2);
 	ea_1(param);
 }
 
-reverse() {
-	register m, r; expr_t e;
+void reverse(void)
+{
+	int m, r;
+    expr_t e;
 
 	m = mrg_1; mrg_1 = mrg_2; mrg_2 = m;
 	e = exp_1; exp_1 = exp_2; exp_2 = e;
@@ -59,13 +62,14 @@ reverse() {
 #endif
 }
 
-badsyntax() {
-
+void badsyntax(void) 
+{
 	serror("bad operands");
 }
 
-regsize(sz) register sz; {
-	register bit;
+void regsize(int sz)
+{
+ 	int bit;
 
 	sz <<= 3;
 	bit = 010;
@@ -77,38 +81,36 @@ regsize(sz) register sz; {
 	mrg_2 &= ~bit;
 }
 
-indexed() {
-        int sm1, sm2;
+void indexed(void)
+{
+	int sm1, sm2;
 
 	if (mrg_2 & ~7)
 		serror("register error");
-        sm1 = exp_2.typ == S_ABS && fitb((short)(exp_2.val));
-        if (sm1) {
-                sm2 = exp_2.val == 0 && mrg_2 != 6;
-        }
-        else sm2 = 0;
-        if (small(sm1, 1)) {
-                if (small(sm2, 1)) {
-                }
-                else mrg_2 |= 0100;
-        }
-        else {
-                if (small(0, 1)) {}
-                mrg_2 |= 0200;
+	sm1 = exp_2.typ == S_ABS && fitb((short)(exp_2.val));
+	if (sm1) {
+		sm2 = exp_2.val == 0 && mrg_2 != 6;
 	}
-  }
+	else sm2 = 0;
+	if (small(sm1, 1)) {
+		if (small(sm2, 1)) {
+		}
+		else mrg_2 |= 0100;
+	}
+	else {
+		if (small(0, 1)) {}
+		mrg_2 |= 0200;
+	}
+}
 
-branch(opc,exp) register opc; expr_t exp; {
-	register sm,dist;
+void branch(int opc, expr_t exp)
+{
+	int sm,dist;
 	int saving = opc == 0353 ? 1 : 3;
 
 	dist = exp.val - (DOTVAL + 2);
 	if (pass == PASS_2 && dist > 0 && !(exp.typ & S_DOT))
-
-
 		dist -= DOTGAIN;
-
-
 	sm = dist > 0 ? fitb(dist-saving) : fitb(dist);
 	if ((exp.typ & ~S_DOT) != DOTTYP)
 		sm = 0;
@@ -136,8 +138,8 @@ branch(opc,exp) register opc; expr_t exp; {
 		emit1(dist);
 }
 
-pushop(opc) register opc; {
-
+void pushop(int opc)
+{
 	regsize(1);
 	if (mrg_1 & 020) {
 		if ( (mrg_1&3) == 1 && opc==1 ) badsyntax() ;
@@ -165,8 +167,8 @@ pushop(opc) register opc; {
 	}
 }
 
-addop(opc) register opc; {
-
+void addop(int opc)
+{
 	regsize(opc);
 	if (mrg_2 >= 0300) {
 		emit1(opc); ea_1((mrg_2&7)<<3);
@@ -181,12 +183,12 @@ addop(opc) register opc; {
 		if ((opc&1) == 0) {
 			emit1(0200);
 		} else {
-                        int sm = exp_2.typ == S_ABS && fitb((short)exp_2.val) &&
-                                opc != 011 && opc != 041 && opc != 061;
-                        if (small(sm, 1)) {
-                                emit1(0203); opc &= ~1;
-                        }
-                        else emit1(0201);
+			int sm = exp_2.typ == S_ABS && fitb((short)exp_2.val) &&
+				opc != 011 && opc != 041 && opc != 061;
+			if (small(sm, 1)) {
+				emit1(0203); opc &= ~1;
+			}
+			else emit1(0201);
 		}
 		ea_1(opc & 070);
 #ifdef RELOCATION
@@ -201,8 +203,9 @@ addop(opc) register opc; {
 		badsyntax();
 }
 
-rolop(opc) register opc; {
-	register cmrg;
+void rolop(int opc)
+{
+	int cmrg;
 
 	cmrg = mrg_2;
 	mrg_2 = mrg_1;
@@ -221,8 +224,8 @@ rolop(opc) register opc; {
 		badsyntax();
 }
 
-incop(opc) register opc; {
-
+void incop(int opc)
+{
 	regsize(opc);
 	if ((opc&1) && mrg_1>=0300) {
 		emit1(0100 | (opc&010) | (mrg_1&7));
@@ -232,8 +235,8 @@ incop(opc) register opc; {
 	}
 }
 
-callop(opc) register opc; {
-
+void callop(int opc)
+{
 	regsize(1);
 	if (mrg_1 & 040) {
 		if (opc == (040+(0351<<8))) {
@@ -253,8 +256,8 @@ callop(opc) register opc; {
 	}
 }
 
-xchg(opc) register opc; {
-
+void xchg(int opc)
+{
 	regsize(opc);
 	if (mrg_2 == 0300 || mrg_1 < 0300)
 		reverse();
@@ -266,8 +269,8 @@ xchg(opc) register opc; {
 		badsyntax();
 }
 
-test(opc) register opc; {
-
+void test(int opc)
+{
 	regsize(opc);
 	if ((mrg_1 & 040) || mrg_2 >= 0300)
 		reverse();
@@ -292,8 +295,8 @@ test(opc) register opc; {
 		badsyntax();
 }
 
-mov(opc) register opc; {
-
+void mov(int opc)
+{
 	regsize(opc);
 	if (mrg_1 & 020) {
 		emit1(0216); ea_2((mrg_1&3)<<3);
@@ -338,8 +341,7 @@ mov(opc) register opc; {
 	}
 }
 
-imul(opc)
-	int opc;
+void imul(int opc)
 {
 	regsize(opc);
 	if (exp_2.typ != S_ABS || ((mrg_2 & 040) == 0)) {
